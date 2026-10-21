@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1b0d49">
+  <meta name="description" content="Catálogo digital de D-Acero: acero, materiales de construcción y herramientas.">
+  <title>D-ACERO | Catálogo industrial</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio" data-page="inicio" aria-label="D-Acero, inicio"><span class="brand-wordmark"><span class="brand-dash">D-</span><strong>ACERO</strong></span></a>
+
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#inicio" data-page="inicio" class="nav-link active">Inicio</a>
+      <a href="#productos" data-page="productos" class="nav-link">Productos</a>
+      <a href="#informacion" data-page="informacion" class="nav-link">Información</a>
+      <a href="#contacto" data-page="contacto" class="nav-link">Contacto</a>
+    </nav>
+
+    <div class="header-actions">
+      <button
+        class="header-search"
+        data-page="productos"
+        aria-label="Buscar productos"
+      >
+        ⌕ <span>Buscar productos...</span>
+      </button>
+
+      <button class="text-button login-button" data-page="credito" aria-label="Solicitar cuenta de crédito" title="Solicitar cuenta de crédito"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18M7 15h4"></path></svg><span class="login-label">Solicitar cuenta de crédito</span></button>
+
+      <button
+        class="icon-button"
+        data-page="solicitud"
+        aria-label="Solicitud de cotización"
+      >
+        🛒<span class="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    
+    <section class="page active" id="page-inicio" data-view="inicio">
+      <section class="hero">
+        <div class="hero-content wrap">
+          <p class="eyebrow">Ferretería industrial · Sincelejo y Sahagún</p>
+          <h1>Todo para tu obra,<br>en un solo lugar</h1>
+
+          <p class="hero-copy">
+            Acero, tuberías, cemento y herramientas para construir, reparar y
+            hacer crecer tus proyectos. Encuentra materiales confiables y
+            asesoría cercana en nuestras dos sedes.
+          </p>
+
+          <div class="button-row">
+            <button class="button button-primary" data-page="productos">
+              Ver catálogo
+            </button>
+            <button class="button button-outline light" data-page="informacion">
+              Conócenos
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap categories-section">
+        <h2>Explora nuestras categorías</h2>
+
+        <div class="category-grid">
+          <button class="category-card" data-category="Tuberías"><span class="category-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h18M5 8v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M8 5v3m8-3v3"/></svg></span><span class="category-copy"><strong>Tuberías y accesorios</strong><small>PVC, conexiones y pegantes</small></span><span class="category-count" data-category-count="Tuberías">0</span><span class="category-arrow" aria-hidden="true">↗</span></button>
+          <button class="category-card" data-category="Construcción"><span class="category-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 19 2-8h12l2 8H4ZM3 19h18M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span class="category-copy"><strong>Acero y construcción</strong><small>Varilla, cemento, malla y más</small></span><span class="category-count" data-category-count="Construcción">0</span><span class="category-arrow" aria-hidden="true">↗</span></button>
+          <button class="category-card" data-category="Herramientas"><span class="category-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m14 7 3-3 4 4-3 3M5 19 15 9m-3-5 8 8M4 4l6 6m-3-7 4 4M3 21l5-5"/></svg></span><span class="category-copy"><strong>Herramientas y corte</strong><small>Equipos para cada trabajo</small></span><span class="category-count" data-category-count="Herramientas">0</span><span class="category-arrow" aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="wrap">
+          <div class="section-heading">
+            <h2>Productos destacados</h2>
+            <button class="link-button" data-page="productos">Ver todos →</button>
+          </div>
+
+          <div
+            class="product-grid product-grid-home"
+            id="featured-products"
+          ></div>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="home-cta-title">
+        <div class="wrap cta-band-inner">
+          <div class="cta-copy">
+            <p class="cta-eyebrow"><span class="cta-eyebrow-dot"></span> Materiales para construir con confianza</p>
+            <h2 id="home-cta-title">¿Buscas algo <span>específico?</span></h2>
+            <p class="cta-description">
+              En D-ACERO te ayudamos a encontrar los materiales adecuados para tu obra.
+              Consulta disponibilidad y recibe atención para compras al detal y al por mayor.
+            </p>
+            <div class="cta-actions">
+              <button class="button button-primary" data-page="productos">
+                Explorar catálogo <span aria-hidden="true">→</span>
+              </button>
+              <button class="button button-outline light" data-page="contacto">
+                Hablar con un asesor
+              </button>
+            </div>
+            <div class="cta-benefits" aria-label="Beneficios de D-Acero">
+              <span>✓ Atención especializada</span>
+              <span>✓ Dos sedes para atenderte</span>
+            </div>
+          </div>
+
+          <figure class="cta-store-visual">
+            <img src="images/daceroalmacen.webp" alt="Materiales y productos disponibles en el almacén D-Acero" loading="lazy">
+            <figcaption><strong>Materiales listos para tu proyecto</strong><span>Acero · Construcción · Ferretería</span></figcaption>
+          </figure>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="page-productos" data-view="productos">
+      <div class="wrap catalog-page">
+        <h1>Catálogo de productos</h1>
+
+        <label class="search-field">
+          <span aria-hidden="true">⌕</span>
+          <input
+            id="product-search"
+            type="search"
+            placeholder="Buscar productos..."
+            aria-label="Buscar productos"
+          >
+        </label>
+
+        <div class="catalog-layout">
+          <aside class="filters">
+            <h2>Filtros</h2>
+            <div class="filter-group filter-categories">
+              <h3>Categorías</h3>
+              <label><input type="checkbox" value="Tuberías" class="category-filter"> Tuberías y accesorios</label>
+              <label><input type="checkbox" value="Construcción" class="category-filter"> Acero y construcción</label>
+              <label><input type="checkbox" value="Herramientas" class="category-filter"> Herramientas y corte</label>
+            </div>
+            <div class="filter-group price-filter-group">
+              <h3>Precio</h3>
+              <div class="price-range-heading"><span>Precio máximo</span><strong id="price-range-value">$300.000</strong></div>
+              <input id="price-range" type="range" min="0" max="300000" step="5000" value="300000" aria-label="Precio máximo">
+              <div class="range-labels"><span>$0</span><span>$300.000+</span></div>
+              <button class="filter-reset" id="reset-price" type="button">Restablecer filtros</button>
+            </div>
+          </aside>
+
+          <div class="catalog-results">
+            <div class="results-toolbar">
+              <span id="results-count">Mostrando productos</span>
+              <label>
+                Ordenar por:
+                <select id="sort-products">
+                  <option value="relevance">Relevancia</option>
+                  <option value="price-low">Precio: menor a mayor</option>
+                  <option value="price-high">Precio: mayor a menor</option>
+                </select>
+              </label>
+            </div>
+
+            <div
+              class="product-grid catalog-grid"
+              id="catalog-products"
+            ></div>
+
+            <p class="empty-state" id="empty-state" hidden>
+              No encontramos productos con esos criterios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-detalle" data-view="detalle">
+      <div class="wrap detail-page">
+        <p class="breadcrumbs">
+          <button data-page="inicio">Inicio</button> ›
+          <button data-page="productos">Productos</button> ›
+          <span id="detail-category">Tuberías</span>
+        </p>
+
+        <div class="detail-layout">
+          <div class="detail-visual">
+            <img id="detail-image" src="" alt="">
+
+            <div class="thumb-row">
+              <button class="thumb active" aria-label="Ver imagen del producto">
+                <img id="thumb-image" src="" alt="">
+              </button>
+              <div class="thumb-placeholder">＋</div>
+            </div>
+          </div>
+
+          <div class="detail-info">
+            <div class="detail-top">
+              <p class="eyebrow" id="detail-eyebrow">TUBERÍAS</p>
+              <span class="stock-tag">✓ En stock</span>
+            </div>
+
+            <h1 id="detail-name"></h1>
+            <p class="detail-price" id="detail-price"></p>
+            <p id="detail-description" class="detail-description"></p>
+
+            <h2 class="spec-title">Especificaciones técnicas</h2>
+            <dl class="spec-list">
+              <div><dt>Diámetro</dt><dd id="detail-size">2 pulgadas</dd></div>
+              <div><dt>Longitud</dt><dd>6 m</dd></div>
+              <div><dt>Material</dt><dd>Acero estructural</dd></div>
+              <div><dt>Acabado</dt><dd>Industrial</dd></div>
+            </dl>
+
+            <div class="quantity-row">
+              <strong>Cantidad</strong>
+              <div class="quantity-control">
+                <button data-quantity="minus" aria-label="Reducir cantidad">−</button>
+                <span id="detail-quantity">1</span>
+                <button data-quantity="plus" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button class="button button-primary" id="add-detail">
+                ＋ Agregar a solicitud
+              </button>
+              <button class="button button-outline" data-page="contacto">
+                Contactar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <section class="related">
+          <h2>Productos relacionados</h2>
+          <div class="product-grid" id="related-products"></div>
+        </section>
+      </div>
+    </section>
+
+
+    <section class="page" id="page-solicitud" data-view="solicitud">
+      <div class="wrap quote-page">
+        <h1>Mi solicitud de cotización</h1>
+        <p class="lead">
+          Revisa los productos seleccionados y envía tu solicitud para recibir
+          los mejores precios.
+        </p>
+
+        <div class="quote-layout">
+          <div>
+            <div class="quote-table" id="quote-items"></div>
+
+            <div class="notes-card">
+              <label for="quote-notes">Observaciones adicionales</label>
+              <textarea
+                id="quote-notes"
+                placeholder="Instrucciones especiales para entrega, notas sobre el pedido, etc."
+              ></textarea>
+            </div>
+
+            <div class="notice">
+              ⓘ Tu solicitud será revisada por nuestro equipo técnico de D-ACERO
+              para confirmar disponibilidad y costos. La cotización será
+              gestionada por nuestro equipo.
+            </div>
+          </div>
+
+          <aside class="summary-card">
+            <h2>Resumen de solicitud</h2>
+            <div class="summary-line">
+              <span>Artículos</span>
+              <strong id="summary-quantity">0 items</strong>
+            </div>
+            <div class="summary-line">
+              <span>Subtotal estimado</span>
+              <strong id="summary-total">$0</strong>
+            </div>
+            <small>
+              * Los precios son estimados y no incluyen impuestos ni costos de envío.
+            </small>
+            <button class="button button-primary full" id="send-quote">
+              ➤ Solicitar cotización
+            </button>
+            <p class="secure-note">♙ Solicitud segura y sin compromiso</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-informacion" data-view="informacion">
+      <div class="about-hero">
+        <h1>Conoce D-ACERO</h1>
+        <span></span>
+      </div>
+
+      <section class="section wrap about-intro">
+        <img
+          src="images/daceroalmacen.webp"
+          alt="Interior de un taller industrial"
+        >
+        <div>
+          <h2>¿Quiénes somos?</h2>
+          <p>
+            En D-ACERO somos más que una ferretería: somos tu aliado
+            estratégico en el desarrollo y ejecución de proyectos de construcción
+            y metalmecánica. Con años de trayectoria, ofrecemos materiales de
+            calidad y atención especializada.
+          </p>
+          <p>
+            Nuestro compromiso es proveer soluciones integrales a través de un
+            amplio portafolio de productos certificados, respaldados por un
+            equipo de profesionales dispuesto a brindar asesoría técnica
+            especializada.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="wrap">
+          <div class="center-heading">
+            <h2>Nuestros productos</h2>
+            <p>
+              Soluciones completas para todas las etapas de tu proyecto
+              industrial o de construcción.
+            </p>
+          </div>
+
+          <div class="about-cards">
+            <article class="about-product-card"><img src="images/tuberia.webp" alt="Tubería PVC para instalaciones y obras" loading="lazy"><div class="about-product-copy"><span class="about-product-kicker">Conducción y conexiones</span><h3>Tuberías y accesorios</h3><p>Tuberías, codos y pegantes para instalaciones hidráulicas.</p><button class="about-product-link" data-category="Tuberías">Explorar categoría <span aria-hidden="true">→</span></button></div></article>
+            <article class="about-product-card"><img src="images/varilla.webp" alt="Paquete de varilla corrugada para construcción" loading="lazy"><div class="about-product-copy"><span class="about-product-kicker">Material para obra</span><h3>Acero y construcción</h3><p>Varillas, tejas, cemento, mallas y materiales para tu proyecto.</p><button class="about-product-link" data-category="Construcción">Explorar categoría <span aria-hidden="true">→</span></button></div></article>
+            <article class="about-product-card"><img src="images/serrucho.webp" alt="Serrucho manual para trabajos de construcción" loading="lazy"><div class="about-product-copy"><span class="about-product-kicker">Precisión y rendimiento</span><h3>Herramientas y corte</h3><p>Herramientas manuales y discos para completar cada trabajo.</p><button class="about-product-link" data-category="Herramientas">Explorar categoría <span aria-hidden="true">→</span></button></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap branches">
+        <h2>Nuestras sedes</h2>
+        <div class="branch-grid">
+           <article>
+            <h3>Sede Sincelejo</h3>
+            <p>⌖ Cra. 25 # 32–45, Zona Industrial, Sincelejo, Sucre.</p>
+            <p>☎ +57 (314) 513-9305</p>
+          </article>
+          <article>
+            <h3>Sede Sahagún</h3><p>⌖ Troncal de Occidente Km 2 vía Montería, Sahagún, Córdoba.</p>
+            <p>☎ +57 (310) 533-4701</p>
+          </article>
+        </div>
+        
+        <div class="branch-maps" aria-label="Mapa personalizado con las dos sedes D-Acero">
+          <article class="branch-map-card branch-map-card--combined">
+            <div class="branch-map-heading"><h3>Encuentra nuestras dos sedes</h3><a href="https://www.google.com/maps/d/u/0/viewer?mid=1s7nchgGHBHVpn8E6-lzq9lklSME5weQ" target="_blank" rel="noopener noreferrer">Abrir mapa completo ↗</a></div>
+            <div class="branch-map-legend" aria-label="Sedes incluidas en el mapa">
+              <a class="branch-location" href="https://maps.app.goo.gl/KVKzuvyYGkCtjtZA6" target="_blank" rel="noopener noreferrer"><span class="branch-location-dot" aria-hidden="true">1</span><span><strong>Sincelejo</strong><small>Zona Industrial · Cra. 25 # 32–45</small></span><span class="branch-location-action">Cómo llegar ↗</span></a>
+              <a class="branch-location" href="https://maps.app.goo.gl/HoQ3N3NAZ5DvNGn6A" target="_blank" rel="noopener noreferrer"><span class="branch-location-dot" aria-hidden="true">2</span><span><strong>Sahagún</strong><small>Troncal de Occidente Km 2 vía Montería</small></span><span class="branch-location-action">Cómo llegar ↗</span></a>
+            </div>
+            <iframe title="Mapa personalizado D-Acero: sedes Sincelejo y Sahagún" src="https://www.google.com/maps/d/u/0/embed?mid=1s7nchgGHBHVpn8E6-lzq9lklSME5weQ&amp;ehbc=2E312F&amp;noprof=1" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </article>
+        </div>
+      </section>
+      
+        <section class="why-band">
+        <h2>¿Por qué elegir D-ACERO?</h2>
+        <div class="wrap why-grid">
+          <article>
+            <h3>Calidad garantizada</h3>
+            <p>Materiales certificados que cumplen las normas técnicas más exigentes.</p>
+          </article>
+          <article>
+            <h3>Variedad de productos</h3>
+            <p>Amplio inventario disponible para asegurar la continuidad de tus obras.</p>
+          </article>
+          <article>
+            <h3>Atención especializada</h3>
+            <p>Asesoría experta para ayudarte a seleccionar exactamente lo que necesitas.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="last-cta">
+        <h2>¿Listo para abastecer tu proyecto?</h2>
+        <button class="button button-primary" data-page="productos">
+          Ver catálogo →
+        </button>
+      </section>
+    </section>
+
+
+    <!-- INICIO DE CONTACTO -->
+    <section class="page" id="page-contacto" data-view="contacto">
+      <div class="wrap contact-page">
+        <h1>Contáctanos</h1>
+        <p class="lead">
+          Estamos aquí para ayudarte a construir con la mejor calidad. Envíanos
+          tus requerimientos o visita nuestras sucursales.
+        </p>
+
+        <div class="contact-layout">
+          <form class="form-card whatsapp-form" data-form-purpose="contact">
+            <h2>Envíanos un mensaje</h2>
+
+            <div class="form-grid">
+              <label>
+                Nombre completo
+                <input name="name" required placeholder="Tu nombre">
+              </label>
+              <label>
+                Teléfono
+                <input name="phone" type="tel" placeholder="+57 300 000 0000">
+              </label>
+              <label class="span-2">
+                Correo electrónico
+                <input name="email" type="email" required placeholder="nombre@correo.com">
+              </label>
+              <label class="span-2">
+                Mensaje
+                <textarea name="message" required placeholder="¿En qué podemos ayudarte?"></textarea>
+              </label>
+            </div>
+
+            <button class="button button-primary">Enviar mensaje</button>
+          </form>
+
+          <aside class="contact-info">
+            <h2>Información general</h2>
+            <p><strong>☎ Ventas corporativas</strong><br><a href="tel:+573145139305">+57 (314) 513-9305</a></p>
+            <p><strong>✉ Correo electrónico</strong><br>dacerosventas@gmail.com</p>
+            <p>
+              <strong>◷ Horario de atención</strong><br>
+              Lunes a viernes: 7:30 a. m. – 5:30 p. m.<br>
+              Sábados: 8:00 a. m. – 1:00 p. m.
+            </p>
+            <hr>
+            <p><strong>Síguenos en redes</strong></p><div class="social-links contact-social-links"><a class="social-link social-facebook" href="https://www.facebook.com/ferroacero.sincelejo/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de D-Acero">f</a><a class="social-link social-instagram" href="https://www.instagram.com/dacero.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de D-Acero"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="instagram-dot" cx="17.7" cy="6.7" r="1"></circle></svg></a></div>
+          </aside>
+        </div>
+
+        <section class="branches contact-branches">
+          <h2>Nuestras sedes</h2>
+          <div class="branch-grid">
+            <article>
+              <a class="branch-map-link" href="https://maps.app.goo.gl/KVKzuvyYGkCtjtZA6" target="_blank" rel="noopener noreferrer">Ver ubicación de Sincelejo ↗</a>
+              <h3>Sede Sincelejo</h3>
+              <p>⌖ Cra. 25 # 32–45, Zona Industrial</p>
+              <p>☎ +57 (314) 513-9305</p>
+              <p>◷ L–V: 7:30 a. m. – 5:30 p. m.</p>
+            </article>
+            <article>
+              <a class="branch-map-link" href="https://maps.app.goo.gl/HoQ3N3NAZ5DvNGn6A" target="_blank" rel="noopener noreferrer">Ver ubicación de Sahagún ↗</a>
+              <h3>Sede Sahagún</h3>
+              <p>⌖ Troncal de Occidente Km 2 vía Montería</p>
+              <p>☎ +57 (310) 533-4701</p>
+              <p>◷ L–V: 7:30 a. m. – 5:30 p. m.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="page auth-page" id="page-credito" data-view="credito">
+      <form class="auth-card whatsapp-form" data-form-purpose="credit">
+        <a class="auth-brand" href="#inicio" data-page="inicio" aria-label="D-Acero, inicio"><span class="brand-wordmark"><span class="brand-dash">D-</span><strong>ACERO</strong></span></a>
+        <h1>Solicitar cuenta de crédito</h1>
+        <p class="auth-subtitle">Déjanos tus datos y nuestro equipo te orientará sobre los requisitos.</p>
+        <label>Nombre o razón social<input name="name" required placeholder="Nombre de tu empresa"></label>
+        <label>NIT o documento<input name="document" required placeholder="Número de identificación"></label>
+        <label>Correo electrónico<input name="email" type="email" required placeholder="nombre@empresa.com"></label>
+        <label>Teléfono<input name="phone" type="tel" required placeholder="+57 300 000 0000"></label>
+        <button class="button button-primary full">Solicitar información</button>
+        <div class="auth-bottom">
+          <button type="button" class="back-link" data-page="inicio">
+            ← Regresar al inicio
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-column footer-contact-column">
+        <a class="brand footer-brand" href="#inicio" data-page="inicio" aria-label="D-Acero, volver al inicio"><span class="brand-wordmark"><span class="brand-dash">D-</span><strong>ACERO</strong></span></a>
+        <h2>Contáctanos</h2>
+        <a class="footer-contact-link" href="tel:+573145139305"><span aria-hidden="true">☎</span> +57 (314) 513-9305</a>
+        <a class="footer-contact-link" href="mailto:dacerosventas@gmail.com"><span aria-hidden="true">✉</span> dacerosventas@gmail.com</a>
+        <address class="footer-address">
+          <span aria-hidden="true">⌖</span> Cra. 25 # 32–45, Zona Industrial,<br>Sincelejo, Sucre
+        </address>
+        <small class="footer-copyright">© 2026 D-ACERO Industrial. Todos los derechos reservados.</small>
+      </div>
+
+      <div class="footer-column">
+        <h2>Productos</h2>
+        <a href="#productos" data-page="productos">Ver catálogo</a>
+        <a href="#productos" data-category="Tuberías">Tuberías y accesorios</a>
+        <a href="#productos" data-category="Construcción">Materiales de construcción</a>
+        <a href="#productos" data-category="Herramientas">Herramientas</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Información</h2>
+        <a href="#informacion" data-page="informacion">Nuestra empresa</a>
+        <a href="#informacion" data-page="informacion">Sede Sincelejo</a>
+        <small class="footer-location">Cra. 25 # 32–45, Zona Industrial</small>
+        <a href="#informacion" data-page="informacion">Sede Sahagún</a>
+        <small class="footer-location">Troncal de Occidente Km 2 vía Montería</small>
+        <a href="#contacto" data-page="contacto">Contacto y cotizaciones</a>
+      </div>
+
+      <div class="footer-column footer-social-column">
+        <h2>Síguenos en redes</h2>
+        <p>Conoce nuestros productos, novedades y proyectos.</p>
+        <div class="social-links">
+          <a class="social-link social-facebook" href="https://www.facebook.com/ferroacero.sincelejo/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de D-Acero" title="Facebook">
+            <span aria-hidden="true">f</span>
+          </a>
+          <a class="social-link social-instagram" href="https://www.instagram.com/dacero.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de D-Acero" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="instagram-dot" cx="17.7" cy="6.7" r="1"></circle></svg>
+          </a>
+        </div>
+        <span class="footer-social-note">Síguenos y hablemos de tu próximo proyecto.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/573145139305?text=Hola%20D-Acero%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener noreferrer" aria-label="Escribir a D-Acero por WhatsApp" title="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 11.7a8.35 8.35 0 0 1-12.35 7.35L3 20l.98-4.88A8.4 8.4 0 1 1 20.4 11.7Z"></path><path d="M8.2 7.7c.25-.56.51-.57.77-.58h.65c.2 0 .45.08.56.39l.78 1.88c.1.25.07.46-.08.64l-.62.75c-.18.19-.25.38-.1.64.17.28.72 1.18 1.59 1.91 1.09.92 2 .99 2.28 1.08.27.08.44.06.61-.14l.82-.96c.2-.24.41-.28.67-.18l1.8.86c.27.13.45.2.51.33.07.13.07.74-.18 1.44-.25.7-1.48 1.34-2.04 1.39-.52.05-1.17.07-1.89-.16-.44-.14-1.01-.33-1.74-.66-3.06-1.33-5.05-4.45-5.2-4.66-.15-.2-1.24-1.65-1.24-3.14 0-1.5.78-2.23 1.05-2.53Z"></path></svg>
+  </a>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
